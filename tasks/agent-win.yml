@@ -60,7 +60,7 @@
   with_items: '{{ datadog_checks|list }}'
 
 - name: Create a configuration file for each Datadog check
-  win_template:
+  template:
     src: checks.yaml.j2
     dest: "{{ datadog_windows_config_root }}\\conf.d\\{{ item }}.d\\conf.yaml"
   with_items: "{{ datadog_checks|list }}"
