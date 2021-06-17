@@ -1,4 +1,13 @@
 ---
+- name: Stat DD file
+  ansible.windows.win_stat:
+    path: "{{ datadog_windows_config_root }}\\datadog.yaml"
+  register: winstatres
+
+- name: check for template
+  local_action: stat path="templates/datadog.yaml.j2"
+  register: localcheck
+
 - name: Create main Datadog agent configuration file
   win_template:
     #FIXME: should have permissions set to only be readable by ddagentuser
