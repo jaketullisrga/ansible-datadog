@@ -8,6 +8,10 @@
   local_action: stat path="templates/datadog.yaml.j2"
   register: localcheck
 
+- name: search path
+  debug:
+    msg: "{{ ansible_search_path }}"
+
 - name: Create main Datadog agent configuration file
   win_template:
     #FIXME: should have permissions set to only be readable by ddagentuser
