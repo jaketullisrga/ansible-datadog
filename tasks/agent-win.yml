@@ -83,7 +83,7 @@
     - datadog-process-agent
 
 - name: Create system-probe configuration file
-  win_template:
+  template:
     src: system-probe.yaml.j2
     dest: "{{ datadog_windows_config_root }}\\system-probe.yaml"
   notify: restart datadog-agent-win
