@@ -12,6 +12,10 @@
   debug:
     msg: "{{ ansible_search_path }}"
 
+- name: check for relative template
+  local_action: stat path="{{ ansible_search_path[0] }}/templates/datadog.yaml.j2"
+  register: localcheck
+
 - name: Create main Datadog agent configuration file
   win_template:
     #FIXME: should have permissions set to only be readable by ddagentuser
