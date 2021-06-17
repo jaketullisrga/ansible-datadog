@@ -5,7 +5,7 @@
   register: winstatres
 
 - name: check for template
-  local_action: stat path="templates/datadog.yaml.j2"
+  local_action: stat path="datadog.yaml.j2"
   register: localcheck
 
 - name: search path
